@@ -2478,9 +2478,6 @@
     <inspection_tool class="InfiniteLoopStatement" enabled="true" level="WARNING" enabled_by_default="true">
       <scope name="Open Files" level="WARNING" enabled="true" />
     </inspection_tool>
-    <inspection_tool class="InfiniteRecursion" enabled="true" level="WARNING" enabled_by_default="true">
-      <scope name="Open Files" level="WARNING" enabled="true" />
-    </inspection_tool>
     <inspection_tool class="InnerClassMayBeStatic" enabled="true" level="WARNING" enabled_by_default="true">
       <scope name="Open Files" level="WARNING" enabled="true" />
     </inspection_tool>
@@ -3698,9 +3695,6 @@
     <inspection_tool class="RedundantArrayCreation" enabled="true" level="WARNING" enabled_by_default="true">
       <scope name="Open Files" level="WARNING" enabled="true" />
     </inspection_tool>
-    <inspection_tool class="RedundantCast" enabled="true" level="WARNING" enabled_by_default="true">
-      <scope name="Open Files" level="WARNING" enabled="true" />
-    </inspection_tool>
     <inspection_tool class="RedundantClassCall" enabled="true" level="WARNING" enabled_by_default="true">
       <scope name="Open Files" level="WARNING" enabled="true" />
     </inspection_tool>
@@ -4759,6 +4753,7 @@
     <inspection_tool class="VariableNotUsedInsideIf" enabled="true" level="WARNING" enabled_by_default="true">
       <scope name="Open Files" level="WARNING" enabled="true" />
     </inspection_tool>
+    <inspection_tool class="VariablePatternShadow" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="VariableTypeCanBeExplicit" enabled="true" level="INFORMATION" enabled_by_default="true">
       <scope name="Open Files" level="INFORMATION" enabled="true" />
     </inspection_tool>

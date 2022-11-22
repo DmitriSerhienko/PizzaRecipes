@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.RecyclerViewViewHolder> {
 
-    private ArrayList <RecycleViewItem> arrayList;
+    private final ArrayList <RecycleViewItem> arrayList;
     Context context;
 
     public class RecyclerViewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -21,28 +21,28 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         public TextView text1;
         public TextView text2;
 
-        public RecyclerViewViewHolder (@NonNull View itemView){
+        public RecyclerViewViewHolder (@NonNull final View itemView){
             super(itemView);
             itemView.setOnClickListener(this);
-            imView = itemView.findViewById(R.id.imView);
-            text1 = itemView.findViewById(R.id.tvHead);
-            text2 = itemView.findViewById(R.id.tvBody);
+            this.imView = itemView.findViewById(R.id.imView);
+            this.text1 = itemView.findViewById(R.id.tvHead);
+            this.text2 = itemView.findViewById(R.id.tvBody);
         }
 
         @Override
-        public void onClick(View view) {
-            int position = getAdapterPosition();
-            RecycleViewItem recycleViewItem = arrayList.get(position);
+        public void onClick(final View view) {
+            final int position = this.getAdapterPosition();
+            final RecycleViewItem recycleViewItem = RecycleViewAdapter.this.arrayList.get(position);
 
-            Intent intent = new Intent(context, RecipeActivity.class);
+            final Intent intent = new Intent(RecycleViewAdapter.this.context, RecipeActivity.class);
             intent.putExtra("imRes", recycleViewItem.getImageRes());
             intent.putExtra("tvTitle", recycleViewItem.getText1());
             intent.putExtra("tvDesc", recycleViewItem.getText2());
-            context.startActivity(intent);
+            RecycleViewAdapter.this.context.startActivity(intent);
         }
     }
 
-    public RecycleViewAdapter(ArrayList<RecycleViewItem> arrayList, Context context) {
+    public RecycleViewAdapter(final ArrayList<RecycleViewItem> arrayList, final Context context) {
         this.arrayList = arrayList;
         this.context = context;
 
@@ -50,16 +50,16 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     @NonNull
     @Override
-    public RecyclerViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)  {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.res_view_item,
+    public RecyclerViewViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, final int viewType)  {
+        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.res_view_item,
                 parent, false);
-        RecyclerViewViewHolder recyclerViewViewHolder = new RecyclerViewViewHolder(view);
+        final RecyclerViewViewHolder recyclerViewViewHolder = new RecyclerViewViewHolder(view);
         return recyclerViewViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewViewHolder holder, int position) {
-        RecycleViewItem recycleViewItem = arrayList.get(position);
+    public void onBindViewHolder(@NonNull final RecyclerViewViewHolder holder, final int position) {
+        final RecycleViewItem recycleViewItem = this.arrayList.get(position);
 
         holder.imView.setImageResource(recycleViewItem.getImageRes());
         holder.text1.setText(recycleViewItem.getText1());
@@ -68,6 +68,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return this.arrayList.size();
     }
 }
